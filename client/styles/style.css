@@ -1,0 +1,102 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strong, sub, sup, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside,
+canvas, details, embed, figure, figcaption, footer, header, hgroup,  menu, nav,
+output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	font-family: sans-serif;
+	height: 100vh;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.floatRight {
+	float: right;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.day {
+	height: 2.5vh;
+	margin: .5em;
+}
+
+.dayName {
+	font-size: 1em;
+	margin-right: 1.25em;
+}
+
+.dayTemp {
+	font-size: .875em;
+}
+.name {
+	font-size: 1.25em;
+}
+.weather {
+	padding: 0.125em;
+}
+.current {
+	font-size: 7em;
+  padding: 0.125em;
+	font-weight: 600;
+}
+.hour {
+	display: inline-block;
+	margin: .75em .5em;
+}
+
+.hrTemp {
+	font-size: 1em;
+	padding: .25em;
+}
+
+.hrTime {
+	font-size: .75em;
+}

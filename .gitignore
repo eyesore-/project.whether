@@ -18,3 +18,4 @@ node_modules/
 db/
 client/lib
 compiled/
+npm-debug.log
