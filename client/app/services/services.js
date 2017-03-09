@@ -3,11 +3,13 @@ angular.module('whether.services', [])
 .factory('Location', function () {
   return {
     geolocate: function (callback) {
-      let success = function (position) {
-        callback(position.coords.latitude, position.coords.longitude)
+      function success (position) {
+        let lat = position.coords.latitude
+        let lon = position.coords.longitude
+        callback(lat, lon)
       }
-      let error = function () {
-        console.error('ERROR: Unable to retrieve location')
+      function error () {
+        console.error('ERROR: Unable to locate')
       }
       navigator.geolocation.getCurrentPosition(success, error)
     }

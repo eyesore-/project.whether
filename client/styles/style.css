@@ -49,35 +49,39 @@ table {
 	border-spacing: 0;
 }
 
-.floatRight {
-	float: right;
+.container {
+	display: flex;
 }
-
-.floatLeft {
-	float: left;
+.summary {
+	font-size: 0.875em;
 }
-
 .center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
+.daily {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-left: 1em;
+}
 .day {
-	height: 2.5vh;
-	margin: .5em;
+	display: flex;
+	height: 2.75vh;
 }
 
 .dayName {
 	font-size: 1em;
-	margin-right: 1.25em;
+	width: 4em;
 }
-
 .dayTemp {
 	font-size: .875em;
+	width: 1.75em;
 }
 .name {
 	font-size: 1.25em;
+	font-weight: 600;
 }
 .weather {
 	padding: 0.125em;

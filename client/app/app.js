@@ -7,7 +7,10 @@ angular.module('whether', [
 .config(function ($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'app/weather/weather.html',
+      templateUrl: 'app/controllers/weather.html',
       controller: 'WeatherController'
     })
 })
+
+// require('./controllers/weather.js')
+// require('./services/services.js')
