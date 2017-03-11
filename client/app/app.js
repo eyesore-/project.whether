@@ -1,3 +1,5 @@
+require('../styles/style.css')
+
 angular.module('whether', [
   'whether.services',
   'whether.weather',
@@ -12,5 +14,5 @@ angular.module('whether', [
     })
 })
 
-// require('./controllers/weather.js')
-// require('./services/services.js')
+require('./services/services.js')
+require('./controllers/weather.js')
