@@ -23,7 +23,7 @@
   </div>
 
   <div class="daily">
-    <div class="day" ng-repeat="day in data.weather.daily.data | limitTo:7">
+    <div class="day" ng-repeat="day in data.weather.daily.data | limitTo:6">
       <div class="dayName">{{day.time * 1000 | date:'EEE':data.weather.offset}}</div>
       <div class="dayTemp">{{day.temperatureMax | number:0}}</div>
       <div class="dayTemp">{{day.temperatureMin | number:0}}</div>
