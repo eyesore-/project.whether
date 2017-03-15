@@ -14,5 +14,11 @@ angular.module('whether', [
     })
 })
 
+.filter('floor', function () {
+  return function (input) {
+    return Math.floor(input)
+  }
+})
+
 require('./services/services.js')
 require('./controllers/weather.js')
