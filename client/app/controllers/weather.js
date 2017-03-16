@@ -35,7 +35,7 @@ angular.module('whether.weather', [])
 
   function init (lat, lon) {
     getLocation(lat, lon)
-    setTimeout(function () { getWeather(lat, lon) }, 500)
+    getWeather(lat, lon)
   }
 
   Location.geolocate(init)
