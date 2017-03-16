@@ -9,6 +9,7 @@ angular.module('whether.weather', [])
     return $http
       .jsonp(`${uri}/${lat},${lon}?exclude=minutely,flags&callback=JSON_CALLBACK`)
         .success(function (response) {
+          console.log(response)
           response.offset = gmtOffset(response.offset)
           $scope.data.weather = response
         })

@@ -1,92 +1,173 @@
 @import "normal.css";
+@import "colors.css";
+
+@lost gutter 0;
+@lost flexbox flex;
+@lost cycle none;
+
+:root {
+  --center: {
+    display: flex;
+    align-items: center;
+		justify-content: center;
+  };
+	--vert-center: {
+		display: flex;
+    align-items: center;
+	}
+}
+
+body {
+	@apply --center;
+}
+
+.app-con {
+	@apply --center;
+	width: 60%;
+	height: 50%;
+}
 
 .container {
-	display: flex;
-}
-.summary {
-	font-size: 0.875em;
-}
-.center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.daily {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	margin-left: 1em;
-}
-.day {
-	display: flex;
-	height: 2.75vh;
+	width: 100%;
+	height: 100%;
+	& .day-con {
+		lost-row: 3/4;
+	}
+	& .week-con {
+		lost-row: 1/4;
+	}
 }
 
-.dayName {
-	font-size: 1em;
-	width: 4em;
+.day-con {
+	display: flex;
+  & .curr-con {
+    lost-column: 7/9;
+  }
+	& .hour-con {
+		lost-column: 2/9;
+	}
 }
-.dayTemp {
-	font-size: .875em;
-	width: 1.75em;
+
+.curr-con {
+	& .name {
+		@apply --vert-center;
+		lost-row: 1/7;
+	}
+	& .curr-info {
+		lost-row: 6/7;
+	}
 }
 .name {
-	font-size: 1.25em;
 	font-weight: 600;
+	font-size: 1.125em;
 }
-.weather {
-	padding: 0.125em;
+.curr-info {
+  @apply --center;
+	flex-direction: column;
 }
-.current {
+.curr-temp {
 	font-size: 7em;
-  padding: 0.125em;
-	font-weight: 600;
+	font-weight: 700;
 }
+.summary {
+	font-size:0.85em;
+}
+
+.hour-con {
+	height: 100%;
+	& .hour {
+		lost-row: 1/5;
+	}
+}
+
 .hour {
-	display: inline-block;
-	margin: .75em .5em;
+	@apply --vert-center;
+	& .hr-time {
+		lost-column: 3/4;
+		font-size: 0.825em;
+	}
+	& .hr-temp {
+		lost-column: 1/4;
+		font-size: 1em;
+	}
 }
 
-.hrTemp {
-	font-size: 1em;
-	padding: .25em;
+.week-con {
+	display: flex;
+	& .day {
+		lost-column: 1/6;
+	}
 }
-
-.hrTime {
-	font-size: .75em;
+.week-con:first-child {
+	border-bottom: 0.5em solid #F1F1F1;
+}
+.day {
+	@apply --center;
+	& .day-info {
+		lost-row: 3/5;
+	}
+}
+.day:first-child {
+	background-color: #232323;
+}
+.day-info {
+	width: 100%;
+	& .day-name {
+		lost-row: 2/5;
+	}
+	& .day-temp {
+		lost-row: 3/5;
+	}
+}
+.day-name {
+	@apply --center;
+  font-size: 0.825em;
+}
+.day-temp {
+	@apply --center;
+	& div {
+		@apply --center;
+		font-size: 1.125em;
+		height: 100%;
+		lost-column: 2/5;
+	}
+}
+.day-high {
+	font-weight: 500;
+}
+.day-low {
+	opacity: 0.675;
 }
 
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @apply --center;
 }
 
 .ball {
   width: 22px;
   height: 22px;
-  border-radius: 11px;
+  border-radius: 50%;
   display: inline-block;
   margin: 0 10px;
   animation: 2s bounce ease infinite;
 }
 
 .blue {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #E3F2FD;
 }
 
 .red {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #42A5F5;
   animation-delay: .25s;
 }
 
 .yellow {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #FFB74D;
   animation-delay: .5s;
 }
 
 .green {
-  background-color: rgba(0, 0, 0, 0.125);
+  background-color:#D84315;
   animation-delay: .75s;
 }
 
