@@ -1,5 +1,4 @@
 # Whether
-***
 
 ![alt text](/images/TEMP_tucson.png "Temperature")
 
