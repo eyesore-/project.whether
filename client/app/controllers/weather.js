@@ -1,6 +1,6 @@
 angular.module('whether.weather', [])
 
-.controller('WeatherController', function ($scope, $http, Location) {
+.controller('WeatherController', function ($scope, $window, $http, Location) {
   $scope.data = {}
 
   function getWeather (lat, lon) {
@@ -9,7 +9,6 @@ angular.module('whether.weather', [])
     return $http
       .jsonp(`${uri}/${lat},${lon}?exclude=minutely,flags&callback=JSON_CALLBACK`)
         .success(function (response) {
-          console.log(response)
           response.offset = gmtOffset(response.offset)
           $scope.data.weather = response
         })
@@ -34,10 +33,16 @@ angular.module('whether.weather', [])
     return (offset < 0 ? '-' : '+') + hour + minute.toString().substr(0, 2)
   }
 
-  function init (lat, lon) {
+  function populateData (lat, lon) {
     getLocation(lat, lon)
     getWeather(lat, lon)
   }
 
-  Location.geolocate(init)
+  function init () {
+    const localStorage = $window.localStorage
+    if (localStorage.lat) populateData(localStorage.lat, localStorage.lon)
+    Location.geolocate(populateData)
+  }
+
+  init()
 })

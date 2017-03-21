@@ -3,15 +3,16 @@ angular.module('whether.services', [])
 .factory('Location', function () {
   return {
     geolocate: function (callback) {
-      function success (position) {
-        let lat = position.coords.latitude
-        let lon = position.coords.longitude
-        callback(lat, lon)
-      }
-      function error () {
-        console.error('ERROR: Unable to locate')
-      }
       navigator.geolocation.getCurrentPosition(success, error)
+      function success (position) {
+        const localStorage = window.localStorage
+        localStorage.setItem('lat', position.coords.latitude)
+        localStorage.setItem('lon', position.coords.longitude)
+        callback(localStorage.lat, localStorage.lon)
+      }
+      function error (error) {
+        throw new Error(`ERROR ${error.code}: ${error.message}`)
+      }
     }
   }
 })
