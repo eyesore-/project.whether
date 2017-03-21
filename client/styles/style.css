@@ -24,18 +24,26 @@ body {
 .app-con {
 	@apply --center;
 	width: 60%;
-	height: 50%;
+	height: 55%;
 }
 
 .container {
 	width: 100%;
 	height: 100%;
+	& .name {
+		@apply --vert-center;
+		lost-row: 1/8;
+	}
 	& .day-con {
-		lost-row: 3/4;
+		lost-row: 5/8;
 	}
 	& .week-con {
-		lost-row: 1/4;
+		lost-row: 2/8;
 	}
+}
+.name {
+	font-weight: 600;
+	font-size: 1.125em;
 }
 
 .day-con {
@@ -49,7 +57,7 @@ body {
 }
 
 .curr-con {
-	& .name {
+	& .sun-status {
 		@apply --vert-center;
 		lost-row: 1/7;
 	}
@@ -57,9 +65,8 @@ body {
 		lost-row: 6/7;
 	}
 }
-.name {
-	font-weight: 600;
-	font-size: 1.125em;
+.sun-status {
+	font-size: 0.75em;
 }
 .curr-info {
   @apply --center;
@@ -70,7 +77,7 @@ body {
 	font-weight: 700;
 }
 .summary {
-	font-size:0.85em;
+	font-size:0.825em;
 }
 
 .hour-con {
@@ -84,7 +91,7 @@ body {
 	@apply --vert-center;
 	& .hr-time {
 		lost-column: 3/4;
-		font-size: 0.825em;
+		font-size: 0.75em;
 	}
 	& .hr-temp {
 		lost-column: 1/4;
@@ -121,7 +128,7 @@ body {
 }
 .day-name {
 	@apply --center;
-  font-size: 0.825em;
+  font-size: 0.75em;
 }
 .day-temp {
 	@apply --center;
@@ -136,7 +143,7 @@ body {
 	font-weight: 500;
 }
 .day-low {
-	opacity: 0.675;
+	opacity: 0.65;
 }
 
 .wrapper {

@@ -6,10 +6,15 @@
 </div>
 
 <div class="container" ng-show="data.weather">
+  <div class="name">{{data.location.short_name}}</div>
 
   <div class="day-con">
     <div class="curr-con">
-      <div class="name">{{data.location.short_name}}</div>
+      <div class="sun-status">
+        {{data.weather.currently.time < data.weather.daily.data[0].sunriseTime  ?
+          'Sunrise ' + (data.weather.daily.data[0].sunriseTime * 1000 | date:'hh:mm a':data.weather.offset) :
+          'Sunset ' + (data.weather.daily.data[0].sunsetTime * 1000 | date:'hh:mm a':data.weather.offset)}}
+      </div>
       <div class="curr-info">
         <div class="curr-temp temp-{{data.weather.currently.temperature / 10 | floor}}">
           {{data.weather.currently.temperature | number:0}}&deg;
@@ -29,7 +34,7 @@
   <div class="week-con">
     <div class="day" ng-repeat="day in data.weather.daily.data | limitTo:6">
       <div class="day-info">
-        <div class="day-name">{{day.time * 1000 | date:'EEE':data.weather.offset}}</div>
+        <div class="day-name">{{$first ? 'Today' : day.time * 1000 | date:'EEE':data.weather.offset}}</div>
         <div class="day-temp">
           <div class="day-high temp-{{day.temperatureMax / 10 | floor}}">{{day.temperatureMax | number:0}}</div>
           <div class="day-low temp-{{day.temperatureMin / 10 | floor}}">{{day.temperatureMin | number:0}}</div>
