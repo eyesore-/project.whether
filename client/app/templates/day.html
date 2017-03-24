@@ -1,0 +1,9 @@
+<div class="day-info">
+  <div class="day-name">
+    {{$first ? 'Today' : data.time * 1000 | date:'EEE':weather.offset}}
+  </div>
+  <div class="day-temp">
+    <div class="day-high temp-{{data.temperatureMax / 10 | floor}}">{{data.temperatureMax | number:0}}</div>
+    <div class="day-low temp-{{data.temperatureMin / 10 | floor}}">{{data.temperatureMin | number:0}}</div>
+  </div>
+</div>

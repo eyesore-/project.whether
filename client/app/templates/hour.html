@@ -1,0 +1,6 @@
+<div class="hr-time">
+  {{data.time * 1000 |  date:'hh:mm a':data.weather.offset}}
+</div>
+<div class="hr-temp temp-{{data.temperature / 10 | floor}}">
+  {{data.temperature | number:0}}
+</div>

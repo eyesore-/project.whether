@@ -1,0 +1,37 @@
+<div class="wrapper" ng-show="!weather">
+  <div class="blue ball"></div>
+  <div class="red ball"></div>
+  <div class="yellow ball"></div>
+  <div class="green ball"></div>
+</div>
+
+<div class="container" ng-show="weather">
+  <div class="name">{{location.short_name}}</div>
+
+  <div class="day-con">
+    <div class="curr-con">
+      <div class="sun-status">
+        {{weather.currently.time < weather.daily.data[0].sunriseTime  ?
+          'Sunrise ' + (weather.daily.data[0].sunriseTime * 1000 | date:'hh:mm a':weather.offset) :
+          'Sunset ' + (weather.daily.data[0].sunsetTime * 1000 | date:'hh:mm a':weather.offset)}}
+      </div>
+      <div class="curr-info">
+        <div class="curr-temp temp-{{weather.currently.temperature / 10 | floor}}">
+          {{weather.currently.temperature | number:0}}&deg;
+        </div>
+        <div class="summary">{{weather.hourly.summary}}</div>
+      </div>
+    </div>
+
+    <div class="hour-con">
+      <hour class="hour" ng-repeat="hour in weather.hourly.data | limitTo:5:1" data="hour">
+      </hour>
+    </div>
+  </div>
+
+  <div class="week-con">
+    <day class="day" ng-repeat="day in weather.daily.data | limitTo:6" data="day">
+    </day>
+  </div>
+
+</div>
