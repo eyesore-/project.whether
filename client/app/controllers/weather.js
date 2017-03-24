@@ -1,16 +1,18 @@
 angular.module('whether.weather', [])
 
 .controller('WeatherController', function ($scope, $window, $http, Location) {
-  $scope.data = {}
+  $scope.weather = {}
+  $scope.location = {}
 
   function getWeather (lat, lon) {
     let key = 'eebe3600259ca09c03f6e33ad9e2c6e1'
     let uri = `https://api.darksky.net/forecast/${key}`
+    let options = `exclude=minutely?flags&units=auto`
     return $http
-      .jsonp(`${uri}/${lat},${lon}?exclude=minutely,flags&callback=JSON_CALLBACK`)
+      .jsonp(`${uri}/${lat},${lon}?${options}&callback=JSON_CALLBACK`)
         .success(function (response) {
           response.offset = gmtOffset(response.offset)
-          $scope.data.weather = response
+          $scope.weather = response
         })
   }
 
@@ -22,7 +24,7 @@ angular.module('whether.weather', [])
       url: `${uri}${lat},${lon}&key=${key}`
     })
       .then(function (response) {
-        $scope.data.location = response.data.results[0].address_components[2]
+        $scope.location = response.data.results[0].address_components[2]
       })
   }
 
@@ -45,4 +47,22 @@ angular.module('whether.weather', [])
   }
 
   init()
+})
+
+.directive('hour', function () {
+  return {
+    scope: {
+      data: '='
+    },
+    templateUrl: 'app/templates/hour.html'
+  }
+})
+
+.directive('day', function () {
+  return {
+    scope: {
+      data: '='
+    },
+    templateUrl: 'app/templates/day.html'
+  }
 })
