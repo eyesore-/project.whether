@@ -9,7 +9,7 @@ angular.module('whether', [
 .config(function ($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'app/controllers/weather.html',
+      templateUrl: 'app/templates/weather.html',
       controller: 'WeatherController'
     })
 })
